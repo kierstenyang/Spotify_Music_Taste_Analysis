@@ -1,0 +1,240 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+                <link href="lib/tom-select/tom-select.css" rel="stylesheet">
+                <script src="lib/tom-select/tom-select.complete.min.js"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 850px;
+                 background-color: #121212;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+<div style="background:#121212; color:white; font-family:arial; padding:16px 24px; border-bottom:2px solid #1DB954;">
+  <h1 style="margin:0; font-size:22px;">🎧 My Music Taste — Artist Collaboration Network</h1>
+  <p style="margin:6px 0 0; font-size:14px; color:#b3b3b3;">
+    Node size = tracks in playlist &nbsp;|&nbsp;
+    <span style="color:#1ED760;">●</span> Collaborator &nbsp;
+    <span style="color:#535353;">●</span> Solo-only &nbsp;|&nbsp;
+    Click a node to highlight its connections. Use the search box to jump to an artist.
+  </p>
+</div>
+
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="twentythree">twentythree</option>
+                                
+                                    <option value="nate sib">nate sib</option>
+                                
+                                    <option value="Charli XCX">Charli XCX</option>
+                                
+                                    <option value="slayr">slayr</option>
+                                
+                                    <option value="ethn reis">ethn reis</option>
+                                
+                                    <option value="TJAYY">TJAYY</option>
+                                
+                                    <option value="Frost Children">Frost Children</option>
+                                
+                                    <option value="Sorisa">Sorisa</option>
+                                
+                                    <option value="very cool tutorials">very cool tutorials</option>
+                                
+                                    <option value="Porter Robinson">Porter Robinson</option>
+                                
+                                    <option value="Bhertuy">Bhertuy</option>
+                                
+                                    <option value="kurtains">kurtains</option>
+                                
+                                    <option value="oliviajones34596070">oliviajones34596070</option>
+                                
+                                    <option value="Rich Amiri">Rich Amiri</option>
+                                
+                                    <option value="fss">fss</option>
+                                
+                                    <option value="glaive">glaive</option>
+                                
+                                    <option value="Kim Petras">Kim Petras</option>
+                                
+                                    <option value="Steele 11">Steele 11</option>
+                                
+                                    <option value="underscores">underscores</option>
+                                
+                                    <option value="Elxnce">Elxnce</option>
+                                
+                                    <option value="Internet Money">Internet Money</option>
+                                
+                                    <option value="doug suh">doug suh</option>
+                                
+                                    <option value="pryme!">pryme!</option>
+                                
+                                    <option value="2hollis">2hollis</option>
+                                
+                                    <option value="swedm">swedm</option>
+                                
+                                    <option value="aftrr!">aftrr!</option>
+                                
+                                    <option value="Tiffany Day">Tiffany Day</option>
+                                
+                                    <option value="Thaiboy Digital">Thaiboy Digital</option>
+                                
+                                    <option value="berryblue">berryblue</option>
+                                
+                                    <option value="Cece Natalie">Cece Natalie</option>
+                                
+                                    <option value="zxemnaschrist">zxemnaschrist</option>
+                                
+                                    <option value="aidn.">aidn.</option>
+                                
+                                    <option value="daine">daine</option>
+                                
+                                    <option value="Ninajirachi">Ninajirachi</option>
+                                
+                                    <option value="Aries">Aries</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "twentythree", "label": "twentythree", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003etwentythree\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "nate sib", "label": "nate sib", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003enate sib\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "Charli XCX", "label": "Charli XCX", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eCharli XCX\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "slayr", "label": "slayr", "shape": "dot", "size": 54.285714285714285, "title": "\u003cb\u003eslayr\u003c/b\u003e\u003cbr\u003e5 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "ethn reis", "label": "ethn reis", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eethn reis\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "TJAYY", "label": "TJAYY", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eTJAYY\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Frost Children", "label": "Frost Children", "shape": "dot", "size": 70.0, "title": "\u003cb\u003eFrost Children\u003c/b\u003e\u003cbr\u003e7 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "Sorisa", "label": "Sorisa", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eSorisa\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "very cool tutorials", "label": "very cool tutorials", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003every cool tutorials\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Porter Robinson", "label": "Porter Robinson", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003ePorter Robinson\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "Bhertuy", "label": "Bhertuy", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eBhertuy\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "kurtains", "label": "kurtains", "shape": "dot", "size": 38.57142857142857, "title": "\u003cb\u003ekurtains\u003c/b\u003e\u003cbr\u003e3 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "oliviajones34596070", "label": "oliviajones34596070", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eoliviajones34596070\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Rich Amiri", "label": "Rich Amiri", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eRich Amiri\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "fss", "label": "fss", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003efss\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "glaive", "label": "glaive", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eglaive\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Kim Petras", "label": "Kim Petras", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eKim Petras\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "Steele 11", "label": "Steele 11", "shape": "dot", "size": 38.57142857142857, "title": "\u003cb\u003eSteele 11\u003c/b\u003e\u003cbr\u003e3 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "underscores", "label": "underscores", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003eunderscores\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Elxnce", "label": "Elxnce", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eElxnce\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Internet Money", "label": "Internet Money", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eInternet Money\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "doug suh", "label": "doug suh", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003edoug suh\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "pryme!", "label": "pryme!", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003epryme!\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "2hollis", "label": "2hollis", "shape": "dot", "size": 54.285714285714285, "title": "\u003cb\u003e2hollis\u003c/b\u003e\u003cbr\u003e5 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "swedm", "label": "swedm", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eswedm\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "aftrr!", "label": "aftrr!", "shape": "dot", "size": 46.42857142857143, "title": "\u003cb\u003eaftrr!\u003c/b\u003e\u003cbr\u003e4 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Tiffany Day", "label": "Tiffany Day", "shape": "dot", "size": 62.14285714285714, "title": "\u003cb\u003eTiffany Day\u003c/b\u003e\u003cbr\u003e6 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Thaiboy Digital", "label": "Thaiboy Digital", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eThaiboy Digital\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "berryblue", "label": "berryblue", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eberryblue\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Cece Natalie", "label": "Cece Natalie", "shape": "dot", "size": 46.42857142857143, "title": "\u003cb\u003eCece Natalie\u003c/b\u003e\u003cbr\u003e4 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "zxemnaschrist", "label": "zxemnaschrist", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003ezxemnaschrist\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "aidn.", "label": "aidn.", "shape": "dot", "size": 54.285714285714285, "title": "\u003cb\u003eaidn.\u003c/b\u003e\u003cbr\u003e5 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#535353", "font": {"color": "white"}, "id": "daine", "label": "daine", "shape": "dot", "size": 30.714285714285715, "title": "\u003cb\u003edaine\u003c/b\u003e\u003cbr\u003e2 track(s) in playlist\u003cbr\u003eSolo only"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Ninajirachi", "label": "Ninajirachi", "shape": "dot", "size": 46.42857142857143, "title": "\u003cb\u003eNinajirachi\u003c/b\u003e\u003cbr\u003e4 track(s) in playlist\u003cbr\u003eCollaborator"}, {"borderWidth": 2, "borderWidthSelected": 4, "color": "#1ED760", "font": {"color": "white"}, "id": "Aries", "label": "Aries", "shape": "dot", "size": 22.857142857142858, "title": "\u003cb\u003eAries\u003c/b\u003e\u003cbr\u003e1 track(s) in playlist\u003cbr\u003eCollaborator"}]);
+                  edges = new vis.DataSet([{"color": "#1DB954", "from": "glaive", "title": "glaive \u0026 kurtains: 2 collab(s)", "to": "kurtains", "value": 2, "width": 7}, {"color": "#1DB954", "from": "aidn.", "title": "aidn. \u0026 doug suh: 2 collab(s)", "to": "doug suh", "value": 2, "width": 7}, {"color": "#1DB954", "from": "oliviajones34596070", "title": "oliviajones34596070 \u0026 twentythree: 1 collab(s)", "to": "twentythree", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Aries", "title": "Aries \u0026 underscores: 1 collab(s)", "to": "underscores", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Internet Money", "title": "Internet Money \u0026 Rich Amiri: 1 collab(s)", "to": "Rich Amiri", "value": 1, "width": 4}, {"color": "#1DB954", "from": "2hollis", "title": "2hollis \u0026 nate sib: 1 collab(s)", "to": "nate sib", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Tiffany Day", "title": "Tiffany Day \u0026 slayr: 1 collab(s)", "to": "slayr", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Frost Children", "title": "Frost Children \u0026 Kim Petras: 1 collab(s)", "to": "Kim Petras", "value": 1, "width": 4}, {"color": "#1DB954", "from": "berryblue", "title": "berryblue \u0026 very cool tutorials: 1 collab(s)", "to": "very cool tutorials", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Cece Natalie", "title": "Cece Natalie \u0026 Elxnce: 1 collab(s)", "to": "Elxnce", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Thaiboy Digital", "title": "Thaiboy Digital \u0026 swedm: 1 collab(s)", "to": "swedm", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Frost Children", "title": "Frost Children \u0026 Ninajirachi: 1 collab(s)", "to": "Ninajirachi", "value": 1, "width": 4}, {"color": "#1DB954", "from": "fss", "title": "fss \u0026 pryme!: 1 collab(s)", "to": "pryme!", "value": 1, "width": 4}, {"color": "#1DB954", "from": "fss", "title": "fss \u0026 zxemnaschrist: 1 collab(s)", "to": "zxemnaschrist", "value": 1, "width": 4}, {"color": "#1DB954", "from": "pryme!", "title": "pryme! \u0026 zxemnaschrist: 1 collab(s)", "to": "zxemnaschrist", "value": 1, "width": 4}, {"color": "#1DB954", "from": "TJAYY", "title": "TJAYY \u0026 slayr: 1 collab(s)", "to": "slayr", "value": 1, "width": 4}, {"color": "#1DB954", "from": "Ninajirachi", "title": "Ninajirachi \u0026 Porter Robinson: 1 collab(s)", "to": "Porter Robinson", "value": 1, "width": 4}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 16, "face": "arial", "strokeWidth": 2, "strokeColor": "#121212"}, "shadow": {"enabled": true, "size": 10}}, "edges": {"smooth": {"type": "continuous"}, "shadow": false, "color": {"opacity": 0.6}}, "physics": {"barnesHut": {"gravitationalConstant": -12000, "springLength": 180, "springConstant": 0.03, "damping": 0.5}, "stabilization": {"iterations": 200}}, "interaction": {"hover": true, "hoverConnectedEdges": true, "selectConnectedEdges": true, "tooltipDelay": 100}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
