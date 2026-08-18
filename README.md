@@ -4,7 +4,7 @@ A data analysis project exploring patterns in my own Spotify listening habits �
 
 ## Overview
 
-I pulled the tracklist from one of my personal Spotify playlists (105 tracks, 74 unique artists) and analyzed it using Python, SQL, and basic statistics, then built an interactive network graph to visualize artist collaborations.
+I pulled the tracklist from one of my personal Spotify playlists (105 tracks, 74 unique artists) and analyzed it using Python, SQL, and statistical hypothesis testing, then built an interactive network graph to visualize artist collaborations.
 
 Questions explored:
 - Which artists dominate my listening?
@@ -29,7 +29,7 @@ Questions explored:
 ## Key Findings
 
 - **74 unique artists** across 105 tracks, with **Frost Children (7 tracks)**, **Tiffany Day (6)**, and **slayr / aidn. / 2hollis (5 each)** as top repeat artists
-- **83.8% of tracks are solo artist tracks vs. 16.2% collaborations** — a chi-square goodness-of-fit test found a statistically significant difference from a 50/50 expected split (p < 0.0001). This shows the split is unlikely to have occurred under a 50/50 null hypothesis; it does not by itself prove a "genuine preference," since factors like how the playlist was built could also explain the skew.
+- **83.8% of tracks are solo artist tracks vs. 16.2% collaborations** — a chi-square goodness-of-fit test found a statistically significant difference from a 50/50 expected split (p < 0.0001). This indicates the observed split is unlikely under the null hypothesis, but does not establish a broader listening preference beyond this playlist.
 - **Skewness of 2.32** in the tracks-per-artist distribution — a small number of artists account for a disproportionate share of the playlist (51 of 74 artists appear only once, while a handful appear 5+ times)
 - Track titles skew short, most commonly **1-2 words**
 
@@ -57,4 +57,4 @@ I originally planned to pull Spotify's audio-feature data (tempo, energy, dancea
 
 ## Skills Demonstrated
 
-Python, Pandas, SQL, SQLite, statistical hypothesis testing, data cleaning, exploratory data analysis, network visualization
+Python, Pandas, SQL, SQLite, data cleaning, exploratory data analysis, statistical hypothesis testing, network visualization
