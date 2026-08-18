@@ -11,7 +11,7 @@ from scipy import stats
 
 sns.set_style("whitegrid")
 
-# ---------- 1. LOAD + CLEAN (pandas) ----------
+# 1. LOAD + CLEAN (pandas)
 df = pd.read_csv("my_playlist.csv")
 df["artist_list"] = df["artists"].str.split(", ")
 df["num_artists"] = df["artist_list"].apply(len)
@@ -23,7 +23,7 @@ df["title_is_uppercase"] = df["track_name"].apply(lambda x: x == x.upper() and x
 
 print(f"Loaded {len(df)} tracks.")
 
-# ---------- 2. LOAD INTO SQLITE ----------
+# 2. LOAD INTO SQLITE 
 conn = sqlite3.connect("playlist.db")
 df_to_sql = df.drop(columns=["artist_list"])  # can't store lists directly
 df_to_sql.to_sql("tracks", conn, if_exists="replace", index=False)
@@ -32,7 +32,7 @@ df_to_sql.to_sql("tracks", conn, if_exists="replace", index=False)
 exploded = df.explode("artist_list").rename(columns={"artist_list": "artist"})
 exploded[["track_name", "artist"]].to_sql("track_artists", conn, if_exists="replace", index=False)
 
-# ---------- 3. SQL QUERIES ----------
+# 3. SQL QUERIES 
 print("\n--- Top 10 most frequent artists (SQL) ---")
 top_artists = pd.read_sql_query("""
     SELECT artist, COUNT(*) as track_count
@@ -76,7 +76,7 @@ artist_dist = pd.read_sql_query("""
 """, conn)
 print(artist_dist)
 
-# ---------- 4. STATS ----------
+# 4. STATS 
 # Is there a statistically meaningful skew in tracks-per-artist (i.e., a few artists dominate)?
 artist_counts = pd.read_sql_query("""
     SELECT artist, COUNT(*) as track_count FROM track_artists GROUP BY artist
@@ -99,7 +99,7 @@ if p_value < 0.05:
 else:
     print("-> No statistically significant preference between solo and collab tracks.")
 
-# ---------- 5. VISUALIZATIONS ----------
+# 5. VISUALIZATIONS
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
 # Top artists bar chart
